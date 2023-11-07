@@ -1,6 +1,5 @@
 package com.npcroom;
 
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.*;
@@ -12,7 +11,7 @@ public class NPCRoomController {
     @RequestMapping
     public String processStatement() {
         Map<String, String> statements = Statements.populateMap();
-        String statement = "I'm good, how are you";
+        String statement = "I'm good, how are you"; // for testing purposes
 
         if(Statements.checkFilter(statement.toLowerCase())) {
             return "That's a bit inappropriate. Let's talk about something else.";
@@ -25,17 +24,12 @@ public class NPCRoomController {
                 res.append(statements.get(message) + "\n");
             }
         }
+
+        if(res.toString().equals("")) {
+            return "I don't know what to say to that.";
+        }
         return res.toString();
     }
-    /*
-    @RequestMapping
-    public String index() {
-        StringBuilder str = new StringBuilder();
-        for (char t = 'a'; t <= 'z'; t++) {
-            str.append(t + " ");
-        }
-        return str.toString();
-    } */
 }
 
 class Statements {
@@ -49,7 +43,7 @@ class Statements {
         statementMap.putIfAbsent("where are you from", "somewhere");
         statementMap.putIfAbsent("when were you born", "dude stop");
         statementMap.putIfAbsent("you suck", "you suck harder");
-        statementMap.putIfAbsent("what is your opinion on artifical intelligence", "REEEEEEE");
+        statementMap.putIfAbsent("what is your opinion on artificial intelligence", "REEEEEEE");
         statementMap.putIfAbsent("what are you doing", "Talking to you ;)");
         statementMap.putIfAbsent("what are your interests", "What interests, I'm a loser who" +
                 "scrolls Reddit on the daily.");
@@ -59,6 +53,8 @@ class Statements {
         statementMap.putIfAbsent("i hate you", "Of course you would say that");
         statementMap.putIfAbsent("what am i supposed to do with this", "I dunno?");
 
+        /* essentially the gist of populateMap() is above. Add more statements as we go into and
+        work in stage 2 of the coding process. */
         return statementMap;
     }
 
