@@ -1,20 +1,24 @@
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import Home from "./Home";
+import Chat from "./Chat";
+import './App.css'
+import './Home.css'
+import './Chat.css'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-      <h3 className="title">Welcome to the NPCRoom!</h3>
-        <img src="https://upload.wikimedia.org/wikipedia/en/1/1b/NPC_wojak_meme.png" className = "image" alt="NPC logo"></img>
-        <p className="body">The NPCRoom is a NPC chatroom that allows
-          users to type in the chat and get a pre-populated
-          response from an NPC.
-        </p>
-        <button className="btn">Get started</button>
-      </header>
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/chat" element={<Chat />} />
+        </Routes>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
+
