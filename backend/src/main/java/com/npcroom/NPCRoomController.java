@@ -1,35 +1,45 @@
 package com.npcroom;
 
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.*;
 
 @RestController
-
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping
 public class NPCRoomController {
 
-    @RequestMapping
-    public String processStatement() {
-        Map<String, String> statements = Statements.populateMap();
-        String statement = "I'm good, how are you"; // for testing purposes
+    private String result;
 
-        if(Statements.checkFilter(statement.toLowerCase())) {
-            return "That's a bit inappropriate. Let's talk about something else.";
-        }
+    @PostMapping
+    public void processStatement(@RequestBody String message) {
+
+        Map<String, String> statements = Statements.populateMap();
+         // String statement = "I'm good, how are you"; // for testing purposes
 
         StringBuilder res = new StringBuilder();
 
-        for(String message : statements.keySet()) {
-            if (statement.toLowerCase().contains(message)) {
-                res.append(statements.get(message) + "\n");
+        if(Statements.checkFilter(message.toLowerCase())) {
+            res.append("That's a bit inappropriate. Let's talk about something else.");
+        } else {
+            for(String keywords : statements.keySet()) {
+                if (message.toLowerCase().contains(keywords)) {
+                    res.append(statements.get(keywords) + "\n");
+                }
+            }
+
+            if(res.toString().equals("")) {
+                res.append("I don't know what to say to that.");
             }
         }
-
-        if(res.toString().equals("")) {
-            return "I don't know what to say to that.";
-        }
-        return res.toString();
+        /*
+            System.out.println(message);
+            System.out.println(res.toString()); */
+        result = res.toString();
     }
+
+    @GetMapping
+    public String index() { return result; }
 }
 
 class Statements {
@@ -37,6 +47,7 @@ class Statements {
     private static String[] filter = {}; // offensive/inappropriate comments will be censored.
 
     public static Map<String, String> populateMap() {
+        statementMap.putIfAbsent("hello" , "Hello!");
         statementMap.putIfAbsent("how are you", "I'm good, thanks for asking!");
         statementMap.putIfAbsent("i'm good", "That's good to hear!");
         statementMap.putIfAbsent("not good", "I'm sorry. Care to talk abt it");
