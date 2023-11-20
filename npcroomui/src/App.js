@@ -9,14 +9,13 @@ import './Chat.css'
 
 const App = () => {
   return (
-    <div>
+
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/chat" element={<Chat />} />
         </Routes>
       </Router>
-    </div>
   );
 };
 
