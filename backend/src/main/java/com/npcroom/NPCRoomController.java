@@ -44,7 +44,8 @@ public class NPCRoomController {
 
 class Statements {
     private static Map<String, String> statementMap = new HashMap<String, String>();
-    private static String[] filter = {}; // offensive/inappropriate comments will be censored.
+    private static String[] filter = { "nigger", "nigga", "faggot", "fag",
+            "chink", "beaner", "cotton picker" }; // offensive/inappropriate comments will be censored.
 
     public static Map<String, String> populateMap() {
         statementMap.putIfAbsent("hello" , "Hello!");
@@ -57,12 +58,17 @@ class Statements {
         statementMap.putIfAbsent("what is your opinion on artificial intelligence", "REEEEEEE");
         statementMap.putIfAbsent("what are you doing", "Talking to you ;)");
         statementMap.putIfAbsent("what are your interests", "What interests, I'm a loser who" +
-                "scrolls Reddit on the daily.");
+                " scrolls Reddit on the daily.");
         statementMap.putIfAbsent("what do you like to do", "Scroll Reddit");
         statementMap.putIfAbsent("can we play a game", "Sure!");
         statementMap.putIfAbsent("i love you", "Wow...I never get that. I love you too!");
         statementMap.putIfAbsent("i hate you", "Of course you would say that");
         statementMap.putIfAbsent("what am i supposed to do with this", "I dunno?");
+        statementMap.putIfAbsent("what is 1 + 1", "2");
+        statementMap.putIfAbsent("what is your opinion of tu?", "Horns down.");
+        statementMap.putIfAbsent("i love you", "Awww....");
+        statementMap.putIfAbsent("are you okay?", "Of course I am!");
+        statementMap.putIfAbsent("what am I not allowed to say to you?", "I have a secret filter.");
 
         /* essentially the gist of populateMap() is above. Add more statements as we go into and
         work in stage 2 of the coding process. */
