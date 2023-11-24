@@ -16,14 +16,14 @@ public class NPCRoomController {
 
         Map<String, String> statements = Statements.populateMap();
          // String statement = "I'm good, how are you"; // for testing purposes
-
+        String msg = message.replaceAll("\\+", " ").substring(0, message.length());
         StringBuilder res = new StringBuilder();
 
-        if(Statements.checkFilter(message.toLowerCase())) {
+        if(Statements.checkFilter(msg.toLowerCase())) {
             res.append("That's a bit inappropriate. Let's talk about something else.");
         } else {
             for(String keywords : statements.keySet()) {
-                if (message.toLowerCase().contains(keywords)) {
+                if (msg.toLowerCase().contains(keywords)) {
                     res.append(statements.get(keywords) + "\n");
                 }
             }
