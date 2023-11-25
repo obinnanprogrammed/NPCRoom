@@ -15,7 +15,6 @@ public class NPCRoomController {
     public void processStatement(@RequestBody String message) {
 
         Map<String, String> statements = Statements.populateMap();
-         // String statement = "I'm good, how are you"; // for testing purposes
         String msg = message.replaceAll("\\+", " ").substring(0, message.length());
         StringBuilder res = new StringBuilder();
 
@@ -32,12 +31,10 @@ public class NPCRoomController {
             }
 
             if(res.toString().equals("")) {
-                res.append("I don't know what to say to that.");
+                res.append("I don't know what to say to that." + "\n");
             }
         }
-        /*
-            System.out.println(message);
-            System.out.println(res.toString()); */
+
         result = res.toString();
     }
 
@@ -53,12 +50,12 @@ class Statements {
 
     public static Map<String, String> populateMap() {
         statementMap.putIfAbsent("hello" , "Hello!");
-        statementMap.putIfAbsent("how are you", "I'm good, thanks for asking!");
+        statementMap.putIfAbsent("how are you", "I'm good, thanks for asking! How are you?");
         statementMap.putIfAbsent("i'm good", "That's good to hear!");
         statementMap.putIfAbsent("not good", "I'm sorry. Care to talk abt it");
         statementMap.putIfAbsent("where are you from", "somewhere");
         statementMap.putIfAbsent("when were you born", "dude stop");
-        statementMap.putIfAbsent("you suck", "you suck harder");
+        statementMap.putIfAbsent("you suck", "no you");
         statementMap.putIfAbsent("what is your opinion on artificial intelligence", "REEEEEEE");
         statementMap.putIfAbsent("what are you doing", "Talking to you ;)");
         statementMap.putIfAbsent("what are your interests", "What interests, I'm a loser who" +
@@ -79,6 +76,14 @@ class Statements {
         statementMap.putIfAbsent("will you get any better", "That is the plan.");
         statementMap.putIfAbsent("memory", "I have no memories, but I'm sure you have some!");
         statementMap.putIfAbsent("what is your name", "Whatever you want it to be.");
+        statementMap.putIfAbsent("what do you look like", "I dunno tbh");
+        statementMap.putIfAbsent("crush on", "I have many crushes. Though they don't like me.");
+        statementMap.putIfAbsent("what school do you go to", "My creators go to Texas A&M University!");
+        statementMap.putIfAbsent("class", "27, AYYYY");
+        statementMap.putIfAbsent("favorite color", "My favorite color is blue.");
+        statementMap.putIfAbsent("dream", "Ooooooo good one....");
+        statementMap.putIfAbsent("favorite food", "I don't eat.");
+        statementMap.putIfAbsent("have a good", "You too!");
         statementMap.putIfAbsent("bye", "Goodbye!");
         return statementMap;
     }
@@ -93,19 +98,3 @@ class Statements {
         return false;
     }
 }
-/*
-    I think I see what's going on here!
-    Anyways, let's set up a skeleton:
-
-    receive message as a String
-
-    how to determine what to say?
-    if word contains some certain phrase, assign response based on phrase.
-    We can start simple such as:
-        NPC: Hello! How are you?
-        User: Good, how about you?
-            "how about you" -> NPC: I'm good, thanks!
-            "good" -> NPC: that's good to hear!
-            (let's not worry about chaining potential responses for now)
-    return appropriately cased phrase
- */
