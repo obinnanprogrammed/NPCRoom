@@ -22,6 +22,9 @@ public class NPCRoomController {
         if(Statements.checkFilter(msg.toLowerCase())) {
             res.append("That's a bit inappropriate. Let's talk about something else.");
         } else {
+            if(msg.contains("homework")) {
+                res.append("Ugh, homework sucks. Don't make me do yours." + "\n");
+            }
             for(String keywords : statements.keySet()) {
                 if (msg.toLowerCase().contains(keywords)) {
                     res.append(statements.get(keywords) + "\n");
@@ -69,6 +72,8 @@ class Statements {
         statementMap.putIfAbsent("i love you", "Awww....");
         statementMap.putIfAbsent("are you okay?", "Of course I am!");
         statementMap.putIfAbsent("what am I not allowed to say to you?", "I have a secret filter.");
+        statementMap.putIfAbsent("what do you think of acc", "ACC best club");
+        statementMap.putIfAbsent("how old are you", "Old enough?");
 
         /* essentially the gist of populateMap() is above. Add more statements as we go into and
         work in stage 2 of the coding process. */
