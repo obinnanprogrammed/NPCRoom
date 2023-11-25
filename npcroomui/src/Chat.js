@@ -35,7 +35,7 @@ const Chat = (props) => {
           <textarea onChange={(e) => {setTextInput(e.target.value); }}></textarea>
           <input type="Submit" value="Send"></input>
         </form>
-        <p className="body">{response}</p>
+        <p className="body" style={{whiteSpace: "pre-line"}}>{response}</p>
       </div>
     </>
   );
