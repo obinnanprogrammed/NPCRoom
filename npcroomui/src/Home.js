@@ -34,7 +34,7 @@ const Home = (props) => {
       </Box>
 
       
-      {<img src="https://upload.wikimedia.org/wikipedia/en/1/1b/NPC_wojak_meme.png" className="image" alt="NPC Image"></img>}
+      {<img src="https://upload.wikimedia.org/wikipedia/en/1/1b/NPC_wojak_meme.png" className="image" alt="NPC"></img>}
       <Typography variant="h6" className="body"
         sx={{
           margin: '10px',
