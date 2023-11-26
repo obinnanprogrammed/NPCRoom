@@ -12,12 +12,13 @@ const Chat = (props) => {
 
   const responseMaker = (e) => {
     e.preventDefault()
-    Promise.resolve(axios.post("https://localhost:8080", textInput), 
+    Promise.resolve(axios.post("https://npcroom-processing.onrender.com", textInput), 
     {headers : {
-      'Content-Type': 'text/plain'
+      'Content-Type': 'text/plain',
+      'Access-Control-Allow-Origin': '*'
     }}).then(() => {
       console.log("message has been sent")
-      Promise.resolve(axios.get("https://localhost:8080")).then((res) => {
+      Promise.resolve(axios.get("https://npcroom-processing.onrender.com")).then((res) => {
         setResponse(response + res.data);
       })
     }).catch((err) => {
