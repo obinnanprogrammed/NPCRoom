@@ -10,15 +10,11 @@ const Chat = (props) => {
   const [textInput, setTextInput] = useState('');
   const [response, setResponse] = useState('');
 
-  /*const handleTextInputChange = event => {
-    setTextInput(event.target.value);
-  };*/
-
   const responseMaker = (e) => {
     e.preventDefault()
-    Promise.resolve(axios.post("http://localhost:8080", textInput)).then(() => {
+    Promise.resolve(axios.post("https://npcroom-processing.onrender.com", textInput)).then(() => {
       console.log("message has been sent")
-      Promise.resolve(axios.get("http://localhost:8080")).then((res) => {
+      Promise.resolve(axios.get("https://npcroom-processing.onrender.com")).then((res) => {
         setResponse(response + res.data);
       })
     }).catch((err) => {
