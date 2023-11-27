@@ -12,13 +12,12 @@ const Chat = (props) => {
   const [response, setResponse] = useState('');
 
   const responseMaker = (e) => {
-    e.preventDefault();
-    axios.post("https://npcroom-processing.onrender.com", textInput)
-      .then(() => {
-        console.log("message has been sent");
-        return axios.get("https://npcroom-processing.onrender.com");
-      })
-      .then((res) => {
+    e.preventDefault()
+    console.log("On the way");
+    Promise.resolve(axios.post("https://npcroom-processing.onrender.com", textInput)).then(() => {
+      console.log("message has been sent")
+      Promise.resolve(axios.get("https://npcroom-processing.onrender.com")).then((res) => {
+
         setResponse(response + "You: " + textInput + "\n" + "NPC: " + res.data);
       })
       .catch((err) => {
