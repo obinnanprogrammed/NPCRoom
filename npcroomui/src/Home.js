@@ -35,7 +35,7 @@ const Home = (props) => {
 
       
       {<img src="https://upload.wikimedia.org/wikipedia/en/1/1b/NPC_wojak_meme.png" className="image" alt="NPC"></img>}
-      <Typography variant="h6" className="body"
+      <Typography variant="h6" className="body" color={"black"}
         sx={{
           margin: '10px',
           padding: '25px',
