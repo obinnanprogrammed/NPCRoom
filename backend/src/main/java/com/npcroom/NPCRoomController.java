@@ -19,7 +19,7 @@ public class NPCRoomController {
         StringBuilder res = new StringBuilder();
 
         if(Statements.checkFilter(msg.toLowerCase())) {
-            res.append("That's a bit inappropriate. Let's talk about something else.");
+            res.append("That's a bit inappropriate. Let's talk about something else." + "\n");
         } else {
             if(msg.contains("homework")) {
                 res.append("Ugh, homework sucks. Don't make me do yours." + "\n");
