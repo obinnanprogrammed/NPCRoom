@@ -29,7 +29,6 @@
 }
 
 .Home-header {
-    background-color: #1F2833;
     color: white;
     text-align: center;
     display: block;
@@ -40,6 +39,6 @@
 .form {
     position: relative;
     z-index: 1;
-    top: 0%;
-    left: auto;
+    top: 25%;
+    left: 35%;
 }
