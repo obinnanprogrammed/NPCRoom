@@ -27,7 +27,7 @@ const Chat = (props) => {
     <>
       <button class = 'btn' onClick={() => navigate(-1)}>Go Back</button>
       <div>
-        <form onSubmit={responseMaker}>
+        <form class="form" onSubmit={responseMaker}>
           <textarea onChange={(e) => {setTextInput(e.target.value); }}></textarea>
           <input type="Submit" value="Send"></input>
         </form>
