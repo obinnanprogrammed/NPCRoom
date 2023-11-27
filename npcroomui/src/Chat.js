@@ -17,15 +17,13 @@ const Chat = (props) => {
     Promise.resolve(axios.post("https://npcroom-processing.onrender.com", textInput)).then(() => {
       console.log("message has been sent")
       Promise.resolve(axios.get("https://npcroom-processing.onrender.com")).then((res) => {
-
         setResponse(response + "You: " + textInput + "\n" + "NPC: " + res.data);
       })
-      .catch((err) => {
+    }).catch((err) => {
         console.log("failed", err.message);
-      });
-
-  };
-
+    });
+  }
+  
   return (
     <>
       <Button class='btn' onClick={() => navigate(-1)}>Go Back</Button>
