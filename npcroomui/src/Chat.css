@@ -28,7 +28,6 @@
 }
 
 .Home-header {
-    background-color: #1F2833;
     color: white;
     text-align: center;
     display: block;
@@ -39,5 +38,5 @@
 .form {
     position: relative;
     top: 25%;
-    left: 40%;
+    left: 35%;
 }
