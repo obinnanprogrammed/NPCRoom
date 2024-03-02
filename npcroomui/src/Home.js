@@ -62,7 +62,7 @@ const Home = (props) => {
 
         }}
 
-        onClick={() => navigate("/chat")}
+        onClick={() => navigate("/login")}
       >
         Get Started
       </Button>
