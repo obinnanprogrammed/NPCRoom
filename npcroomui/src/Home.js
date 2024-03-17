@@ -34,7 +34,7 @@ const Home = (props) => {
       </Box>
 
       
-      {<img src="https://upload.wikimedia.org/wikipedia/en/1/1b/NPC_wojak_meme.png" className="image" alt="NPC"></img>}
+      {<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Fvetores-premium%2Femoji-de-cara-de-nerd-emoticon-inteligente-com-oculos-geek-ou-estudante_3482-1193.jpg%3Fw%3D2000&f=1&nofb=1&ipt=971bb67d62d087ec24216eed694f454099147496f70757a7b4f19ba7f1affbd2&ipo=images" className="image" alt="NPC"></img>}
       <Typography variant="h6" className="body" color={"black"}
         sx={{
           margin: '10px',
